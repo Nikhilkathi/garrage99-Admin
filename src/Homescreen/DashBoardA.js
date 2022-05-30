@@ -1,16 +1,14 @@
 import { Fragment, useState } from "react";
 import { Dialog, Menu, Transition } from "@headlessui/react";
+import Logo from "../../src/logo.svg";
 import {
   BellIcon,
   ClockIcon,
-  CogIcon,
   CreditCardIcon,
   DocumentReportIcon,
   HomeIcon,
   MenuAlt1Icon,
-  QuestionMarkCircleIcon,
   ScaleIcon,
-  ShieldCheckIcon,
   UserGroupIcon,
   XIcon,
 } from "@heroicons/react/outline";
@@ -24,17 +22,18 @@ import {
 } from "@heroicons/react/solid";
 
 const navigation = [
-  { name: "Home", href: "#", icon: HomeIcon, current: true },
-  { name: "History", href: "#", icon: ClockIcon, current: false },
-  { name: "Balances", href: "#", icon: ScaleIcon, current: false },
-  { name: "Cards", href: "#", icon: CreditCardIcon, current: false },
-  { name: "Recipients", href: "#", icon: UserGroupIcon, current: false },
-  { name: "Reports", href: "#", icon: DocumentReportIcon, current: false },
-];
-const secondaryNavigation = [
-  { name: "Settings", href: "#", icon: CogIcon },
-  { name: "Help", href: "#", icon: QuestionMarkCircleIcon },
-  { name: "Privacy", href: "#", icon: ShieldCheckIcon },
+  { name: "Home", href: "/", icon: HomeIcon, current: true },
+  { name: "Products", href: "#", icon: ClockIcon, current: false },
+  { name: "Sub Products", href: "#", icon: ScaleIcon, current: false },
+  { name: "Category", href: "#", icon: CreditCardIcon, current: false },
+  { name: "Vendors", href: "#", icon: UserGroupIcon, current: false },
+  {
+    name: "Customers",
+    href: "/customer",
+    icon: DocumentReportIcon,
+    current: false,
+  },
+  { name: "Transctions", href: "#", icon: DocumentReportIcon, current: false },
 ];
 const cards = [
   { name: "New Orders", href: "#", icon: ScaleIcon, amount: "0" },
@@ -133,11 +132,7 @@ export default function Example() {
                     </div>
                   </Transition.Child>
                   <div className="flex-shrink-0 flex items-center px-4">
-                    <img
-                      className="h-8 w-auto"
-                      src="https://tailwindui.com/img/logos/easywire-logo-cyan-300-mark-white-text.svg"
-                      alt="Easywire logo"
-                    />
+                    <img className="h-8 w-auto" src="" alt="Easywire logo" />
                   </div>
                   <nav
                     className="mt-5 flex-shrink-0 h-full divide-y divide-cyan-800 overflow-y-auto"
@@ -164,23 +159,6 @@ export default function Example() {
                         </a>
                       ))}
                     </div>
-                    <div className="mt-6 pt-6">
-                      <div className="px-2 space-y-1">
-                        {secondaryNavigation.map((item) => (
-                          <a
-                            key={item.name}
-                            href={item.href}
-                            className="group flex items-center px-2 py-2 text-base font-medium rounded-md text-cyan-100 hover:text-white hover:bg-cyan-600"
-                          >
-                            <item.icon
-                              className="mr-4 h-6 w-6 text-cyan-200"
-                              aria-hidden="true"
-                            />
-                            {item.name}
-                          </a>
-                        ))}
-                      </div>
-                    </div>
                   </nav>
                 </Dialog.Panel>
               </Transition.Child>
@@ -196,11 +174,7 @@ export default function Example() {
           {/* Sidebar component, swap this element with another sidebar if you like */}
           <div className="flex flex-col flex-grow bg-cyan-700 pt-5 pb-4 overflow-y-auto">
             <div className="flex items-center flex-shrink-0 px-4">
-              <img
-                className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/easywire-logo-cyan-300-mark-white-text.svg"
-                alt="Easywire logo"
-              />
+              <h1 className="text-xl text-white font-bold">Gaarage99</h1>
             </div>
             <nav
               className="mt-5 flex-1 flex flex-col divide-y divide-cyan-800 overflow-y-auto"
@@ -227,7 +201,7 @@ export default function Example() {
                   </a>
                 ))}
               </div>
-              <div className="mt-6 pt-6">
+              {/* <div className="mt-6 pt-6">
                 <div className="px-2 space-y-1">
                   {secondaryNavigation.map((item) => (
                     <a
@@ -243,7 +217,7 @@ export default function Example() {
                     </a>
                   ))}
                 </div>
-              </div>
+              </div> */}
             </nav>
           </div>
         </div>
@@ -372,7 +346,7 @@ export default function Example() {
                 <div className="py-6 md:flex md:items-center md:justify-between lg:border-t lg:border-gray-200">
                   <div className="flex-1 min-w-0">
                     {/* Profile */}
-                    <div className="flex items-center">
+                    {/* <div className="flex items-center">
                       <img
                         className="hidden h-16 w-16 rounded-full sm:block"
                         src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.6&w=256&h=256&q=80"
@@ -423,6 +397,7 @@ export default function Example() {
                     >
                       Send money
                     </button>
+                  </div> */}
                   </div>
                 </div>
               </div>
