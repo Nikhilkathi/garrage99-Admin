@@ -20,19 +20,31 @@ const cards = [
 ];
 const transactions = [
   {
-    id: 1,
-    name: "Payment to Molly Sanders",
+    id: "0123456",
+    userid: "#0123456",
+    productname: "Helmet",
     href: "#",
-    amount: "$20,000",
-    currency: "USD",
-    status: "success",
-    date: "July 11, 2020",
-    datetime: "2020-07-11",
+    delpincode: "510006",
+    price: "20,000",
+    quantity: "100",
+    netamount: "20000",
+    status: "confirmed",
+  },
+  {
+    id: "0123456",
+    userid: "#0123456",
+    productname: "Helmet",
+    href: "#",
+    delpincode: "510006",
+    price: "20,000",
+    quantity: "100",
+    netamount: "20000",
+    status: "confirmed",
   },
   // More transactions...
 ];
 const statusStyles = {
-  success: "bg-green-100 text-green-800",
+  confirmed: "bg-green-100 text-green-800",
   processing: "bg-yellow-100 text-yellow-800",
   failed: "bg-gray-100 text-gray-800",
 };
@@ -47,18 +59,18 @@ export default function Example() {
   return (
     <>
       <main>
-        <div className="py-6">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+        <div className="pl-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 md:pl-16">
             <main className="flex-1 pb-8">
               {/* Page header */}
               <div className="bg-white shadow">
-                <div className="px-4 sm:px-6 lg:max-w-6xl lg:mx-auto lg:px-8">
-                  <div className="py-6 md:flex md:items-center md:justify-between lg:border-t lg:border-gray-200"></div>
+                <div className="px-4 sm:px-6 lg:max-w-6xl lg:mx-auto lg:pl-16">
+                  <div className="pl-16 md:flex md:items-center md:justify-between lg:border-t lg:border-gray-200"></div>
                 </div>
               </div>
 
-              <div className="py-6">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+              <div className="pl-16">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 md:pl-16">
                   <h2 className="text-lg leading-6 font-medium text-gray-900">
                     Overview
                   </h2>
@@ -106,105 +118,65 @@ export default function Example() {
                   </div>
                 </div>
 
-                <h2 className="max-w-6xl mx-auto mt-8 px-4 text-lg leading-6 font-medium text-gray-900 sm:px-6 lg:px-8">
-                  Recent activity
+                <h2 className="max-w-6xl mx-auto mt-8 px-4 text-lg leading-6 font-medium text-gray-900 sm:px-6 lg:pl-16">
+                  New Orders
                 </h2>
-
-                {/* Activity list (smallest breakpoint only) */}
-                <div className="shadow sm:hidden">
-                  <ul
-                    role="list"
-                    className="mt-2 divide-y divide-gray-200 overflow-hidden shadow sm:hidden"
-                  >
-                    {transactions.map((transaction) => (
-                      <li key={transaction.id}>
-                        <a
-                          href={transaction.href}
-                          className="block px-4 py-4 bg-white hover:bg-gray-50"
-                        >
-                          <span className="flex items-center space-x-4">
-                            <span className="flex-1 flex space-x-2 truncate">
-                              <CashIcon
-                                className="flex-shrink-0 h-5 w-5 text-gray-400"
-                                aria-hidden="true"
-                              />
-                              <span className="flex flex-col text-gray-500 text-sm truncate">
-                                <span className="truncate">
-                                  {transaction.name}
-                                </span>
-                                <span>
-                                  <span className="text-gray-900 font-medium">
-                                    {transaction.amount}
-                                  </span>{" "}
-                                  {transaction.currency}
-                                </span>
-                                <time dateTime={transaction.datetime}>
-                                  {transaction.date}
-                                </time>
-                              </span>
-                            </span>
-                            <ChevronRightIcon
-                              className="flex-shrink-0 h-5 w-5 text-gray-400"
-                              aria-hidden="true"
-                            />
-                          </span>
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <nav
-                    className="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200"
-                    aria-label="Pagination"
-                  >
-                    <div className="flex-1 flex justify-between">
-                      <a
-                        href="#"
-                        className="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:text-gray-500"
-                      >
-                        Previous
-                      </a>
-                      <a
-                        href="#"
-                        className="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:text-gray-500"
-                      >
-                        Next
-                      </a>
-                    </div>
-                  </nav>
-                </div>
 
                 {/* Activity table (small breakpoint and up) */}
                 <div className="hidden sm:block">
-                  <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                  <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:pl-16">
                     <div className="flex flex-col mt-2">
                       <div className="align-middle min-w-full overflow-x-auto shadow overflow-hidden sm:rounded-lg">
                         <table className="min-w-full divide-y divide-gray-200">
-                          <thead>
+                          <thead className="w-full">
                             <tr>
                               <th
                                 className="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                                 scope="col"
                               >
-                                Transaction
+                                Transaction Id
+                              </th>
+                              <th
+                                className="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                scope="col"
+                              >
+                                Product Name
+                              </th>
+                              <th
+                                className="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                scope="col"
+                              >
+                                Price
+                              </th>
+                              <th
+                                className="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                scope="col"
+                              >
+                                Quantity
+                              </th>
+                              <th
+                                className="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                scope="col"
+                              >
+                                Net Amount
+                              </th>
+                              <th
+                                className="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                scope="col"
+                              >
+                                User Id
                               </th>
                               <th
                                 className="px-6 py-3 bg-gray-50 text-right text-xs font-medium text-gray-500 uppercase tracking-wider"
                                 scope="col"
                               >
-                                Amount
+                                Delivery Pincode
                               </th>
                               <th
                                 className="hidden px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider md:block"
                                 scope="col"
                               >
                                 Status
-                              </th>
-                              <th
-                                className="px-6 py-3 bg-gray-50 text-right text-xs font-medium text-gray-500 uppercase tracking-wider"
-                                scope="col"
-                              >
-                                Date
                               </th>
                             </tr>
                           </thead>
@@ -222,16 +194,28 @@ export default function Example() {
                                         aria-hidden="true"
                                       />
                                       <p className="text-gray-500 truncate group-hover:text-gray-900">
-                                        {transaction.name}
+                                        {transaction.id}
                                       </p>
                                     </a>
                                   </div>
                                 </td>
                                 <td className="px-6 py-4 text-right whitespace-nowrap text-sm text-gray-500">
-                                  <span className="text-gray-900 font-medium">
-                                    {transaction.amount}{" "}
-                                  </span>
-                                  {transaction.currency}
+                                  {transaction.productname}
+                                </td>
+                                <td className="px-6 py-4 text-right whitespace-nowrap text-sm text-gray-500">
+                                  {transaction.price}
+                                </td>
+                                <td className="px-6 py-4 text-right whitespace-nowrap text-sm text-gray-500">
+                                  {transaction.quantity}
+                                </td>
+                                <td className="px-6 py-4 text-right whitespace-nowrap text-sm text-gray-500">
+                                  {transaction.netamount}
+                                </td>
+                                <td className="px-6 py-4 text-right whitespace-nowrap text-sm text-gray-500">
+                                  {transaction.userid}
+                                </td>
+                                <td className="px-6 py-4 text-right whitespace-nowrap text-sm text-gray-500">
+                                  {transaction.delpincode}
                                 </td>
                                 <td className="hidden px-6 py-4 whitespace-nowrap text-sm text-gray-500 md:block">
                                   <span
