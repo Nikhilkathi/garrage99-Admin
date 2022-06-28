@@ -16,7 +16,7 @@ import { SearchIcon } from "@heroicons/react/solid";
 
 const navigation = [
   { name: "Home", href: "/", icon: HomeIcon, current: true },
-  { name: "Products", href: "#", icon: ClockIcon, current: false },
+  { name: "Products", href: "/product", icon: ClockIcon, current: false },
   { name: "Sub Products", href: "#", icon: ScaleIcon, current: false },
   { name: "Category", href: "#", icon: CreditCardIcon, current: false },
   { name: "Vendors", href: "/vendor", icon: UserGroupIcon, current: false },
